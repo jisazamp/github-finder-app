@@ -17,13 +17,13 @@ const Navbar = ({ title }) => {
           to='/'
           className='px-2 py-2 text-sm font-semibold uppercase bg-gray-700 rounded hover:bg-gray-800 hover:text-white hover:text-opacity-95 hover:transition hover:duration-200 hover:cursor-pointer'
         >
-          Home
+          Inicio
         </Link>
         <Link
           to='/about'
           className='px-2 py-2 text-sm font-semibold uppercase bg-gray-700 rounded hover:bg-gray-800 hover:text-white hover:text-opacity-95 hover:transition hover:duration-200 hover:cursor-pointer'
         >
-          About
+          Información
         </Link>
       </div>
     </nav>
