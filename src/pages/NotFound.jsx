@@ -7,13 +7,13 @@ const NotFound = () => {
       <div className='max-w-lg text-center'>
         <h1 className='text-6xl font-bold text-gray-100 md:text-8xl'>¡Ups!</h1>
         <p className='mt-8 mb-5 text-3xl text-gray-100 md:text-5xl'>
-          La página que estás intentando acceder no existe.
+          404 - La página que estás buscando no existe.
         </p>
 
         <div className='flex'>
           <div className='mx-auto font-bold uppercase'>
             <Link
-              className='flex items-center justify-center w-56 px-2 py-3 space-x-2 text-white transition duration-200 bg-purple-700 rounded hover:bg-purple-900 hover:text-opacity-100 text-opacity-80'
+              className='flex items-center justify-center w-56 px-2 py-3 space-x-2 text-white transition duration-200 bg-purple-700 rounded hover:bg-purple-800 hover:text-opacity-100 text-opacity-80'
               to='/'
             >
               <FaHome className='mr-2' />
