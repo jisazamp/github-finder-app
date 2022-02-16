@@ -10,7 +10,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 const App = () => {
   return (
     <Router>
-      <div className='flex flex-col justify-between h-screen bg-gray-600'>
+      <div className='flex flex-col justify-between h-screen overflow-y-auto bg-gray-600'>
         <Navbar />
         <main className='container mx-auto'>
           <Routes>
