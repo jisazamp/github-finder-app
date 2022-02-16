@@ -4,12 +4,14 @@ import { Link } from 'react-router-dom';
 const NotFound = () => {
   return (
     <div className='flex items-center justify-center m-3'>
+      {/* Message */}
       <div className='max-w-lg text-center'>
         <h1 className='text-6xl font-bold text-gray-100 md:text-8xl'>¡Ups!</h1>
         <p className='mt-8 mb-5 text-3xl text-gray-100 md:text-5xl'>
           404 - La página que estás buscando no existe.
         </p>
 
+        {/* Button */}
         <div className='flex'>
           <div className='mx-auto font-bold uppercase'>
             <Link
