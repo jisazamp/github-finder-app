@@ -21,6 +21,8 @@ const UserResults = () => {
 
     // Users to JSON
     const data = await response.json();
+    console.log('VAMOS A VER CUANDO ES ESTO');
+    console.log(data);
 
     // Update the state
     setUsers(data);
