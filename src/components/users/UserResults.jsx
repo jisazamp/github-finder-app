@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import Spinner from '../shared/Spinner';
+import UserItem from '../UserItem';
 
 const UserResults = () => {
   // Component state
@@ -21,8 +22,6 @@ const UserResults = () => {
 
     // Users to JSON
     const data = await response.json();
-    console.log('VAMOS A VER CUANDO ES ESTO');
-    console.log(data);
 
     // Update the state
     setUsers(data);
@@ -37,10 +36,9 @@ const UserResults = () => {
           <Spinner />
         </div>
       )}
-
       {/* Render the list of users */}
       {users?.map((user, index) => {
-        return <li key={index}>{user.login}</li>;
+        return <UserItem key={user.id} user={user} />;
       })}
     </div>
   );
