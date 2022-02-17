@@ -29,7 +29,7 @@ const UserResults = () => {
   };
 
   return (
-    <div className='grid items-center justify-center grid-cols-1 gap-8 m-3 lg:grid-cols-3 md:grid-cols-2 xl:grid-cols-4'>
+    <div className='grid items-center justify-center grid-cols-1 gap-8 m-3 xs:grid-cols-2 lg:grid-cols-3 md:grid-cols-2 xl:grid-cols-4'>
       {/* Conditional rendering of the Spinner */}
       {loading && (
         <div className='flex items-center justify-center'>
