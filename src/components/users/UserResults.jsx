@@ -1,32 +1,16 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useContext } from 'react';
 import Spinner from '../shared/Spinner';
 import UserItem from '../UserItem';
+import GithubContext from '../../context/github/GithubContext';
 
 const UserResults = () => {
-  // Component state
-  const [users, setUsers] = useState([]);
-  const [loading, setLoading] = useState(true);
+  // Bring elements from the context
+  const { users, loading, fetchUsers } = useContext(GithubContext);
 
   // Effect that fetchs the users from the GitHub API
   useEffect(() => {
     fetchUsers();
-  }, []);
-
-  const fetchUsers = async () => {
-    // Fetch the /users list using environment variables
-    const response = await fetch(`${process.env.REACT_APP_GITHUB_URL}/users`, {
-      headers: {
-        Authorization: `token ${process.env.REACT_APP_GITHUB_TOKEN}`,
-      },
-    });
-
-    // Users to JSON
-    const data = await response.json();
-
-    // Update the state
-    setUsers(data);
-    setLoading(false);
-  };
+  }, [fetchUsers]);
 
   return (
     <div className='grid items-center justify-center grid-cols-1 gap-8 m-3 xs:grid-cols-2 lg:grid-cols-3 md:grid-cols-2 xl:grid-cols-4'>

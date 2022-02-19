@@ -6,23 +6,26 @@ import About from './pages/About';
 import NotFound from './pages/NotFound';
 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { GithubProvider } from './context/github/GithubContext';
 
 const App = () => {
   return (
-    <Router>
-      <div className='flex flex-col justify-between h-screen overflow-y-auto bg-gray-600'>
-        <Navbar />
-        <main className='container mx-auto'>
-          <Routes>
-            <Route path='/' element={<Home />} />
-            <Route path='/about' element={<About />} />
-            <Route path='/notfound' element={<NotFound />} />
-            <Route path='/*' element={<NotFound />} />
-          </Routes>
-        </main>
-        <Footer />
-      </div>
-    </Router>
+    <GithubProvider>
+      <Router>
+        <div className='flex flex-col justify-between h-screen overflow-y-auto bg-gray-600'>
+          <Navbar />
+          <main className='container mx-auto'>
+            <Routes>
+              <Route path='/' element={<Home />} />
+              <Route path='/about' element={<About />} />
+              <Route path='/notfound' element={<NotFound />} />
+              <Route path='/*' element={<NotFound />} />
+            </Routes>
+          </main>
+          <Footer />
+        </div>
+      </Router>
+    </GithubProvider>
   );
 };
 
