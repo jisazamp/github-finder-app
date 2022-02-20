@@ -1,5 +1,6 @@
 // Import createcContext
-import { createContext, useState } from 'react';
+import { createContext, useReducer } from 'react';
+import githubReducer from './GithubReducer';
 
 // Declare the new context
 const GithubContext = createContext();
@@ -10,9 +11,13 @@ const GITHUB_TOKEN = process.env.REACT_APP_GITHUB_TOKEN;
 
 // export the Provider
 export const GithubProvider = ({ children }) => {
-  // Put all the elements we want to be global here
-  const [users, setUsers] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const initialState = {
+    users: [],
+    loading: true,
+  };
+
+  const [state, dispatch] = useReducer(githubReducer, initialState);
+
   const fetchUsers = async () => {
     // Fetch the /users list using environment variables
     const response = await fetch(`${GITHUB_URL}/users`, {
@@ -24,13 +29,16 @@ export const GithubProvider = ({ children }) => {
     // Users to JSON
     const data = await response.json();
 
-    // Update the state
-    setUsers(data);
-    setLoading(false);
+    dispatch({
+      type: 'GET_USERS',
+      payload: data,
+    });
   };
 
   return (
-    <GithubContext.Provider value={{ users, loading, fetchUsers }}>
+    <GithubContext.Provider
+      value={{ users: state.users, loading: state.loading, fetchUsers }}
+    >
       {children}
     </GithubContext.Provider>
   );
